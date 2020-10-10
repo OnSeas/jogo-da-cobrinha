@@ -90,4 +90,4 @@ function IniciarJogo() {
     Cobrinha.unshift(NovaCabeca);
 }
 
-let Jogo = setInterval(IniciarJogo, 100); // Chamando função num intervalo de 100 milisengundos (velocidade da cobrinha).
+let Jogo = setInterval(IniciarJogo, 130); // Chamando função num intervalo de 100 milisengundos (velocidade da cobrinha).
