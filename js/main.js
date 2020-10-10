@@ -65,7 +65,13 @@ function IniciarJogo() { // Função que inicia o jogo.
     if(Direction == "up") CobrinhaY -= box;
     if(Direction == "down") CobrinhaY += box;
 
-    Cobrinha.pop();
+    if(CobrinhaX != Comida.x || CobrinhaY != Comida.y) {
+        Cobrinha.pop();
+    }
+    else {
+        Comida.x = Math.floor(Math.random() * 25 +1) * box;
+        Comida.y = Math.floor(Math.random() * 15 +1) * box;
+    }
 
     let NovaCabeca = {
         x: CobrinhaX,
