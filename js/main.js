@@ -9,9 +9,14 @@ let Cobrinha = [];
 Cobrinha[0] = {
     x: 12 * box,
     y: 8 * box
-}
+};
 
 let Direction = "right";
+
+let Comida = {
+    x: Math.floor(Math.random() * 25 +1) * box,
+    y: Math.floor(Math.random() * 15 +1) * box
+};
 
 // Função que cria o background.
 function CriarBG() {
@@ -25,6 +30,12 @@ function CriarCobrinha() {
         Context.fillStyle = "#111";
         Context.fillRect(Cobrinha[I].x, Cobrinha[I].y, box, box);
     }
+}
+
+// Função que cria comida
+function CriarComida() {
+    Context.fillStyle = "red";
+    Context.fillRect(Comida.x, Comida.y, box, box);
 }
 
 function Update(event) { // Função para fazer update da direção.
@@ -44,6 +55,7 @@ function IniciarJogo() { // Função que inicia o jogo.
 
     CriarBG();
     CriarCobrinha();
+    CriarComida();
 
     let CobrinhaX = Cobrinha[0].x;
     let CobrinhaY = Cobrinha[0].y;
