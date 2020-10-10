@@ -38,7 +38,8 @@ function CriarComida() {
     Context.fillRect(Comida.x, Comida.y, box, box);
 }
 
-function Update(event) { // Função para fazer update da direção.
+// Função para fazer update da direção.
+function Update(event) {
     if(event.keyCode == 37 && Direction != "right") Direction = "left";
     if(event.keyCode == 38 && Direction != "down") Direction = "up";
     if(event.keyCode == 39 && Direction != "left") Direction = "right";
@@ -47,11 +48,19 @@ function Update(event) { // Função para fazer update da direção.
 
 document.addEventListener('keydown', Update); // Chamando função Update e mandando a tecla apertada.
 
-function IniciarJogo() { // Função que inicia o jogo.
+// Função que inicia o jogo.
+function IniciarJogo() {
     if(Cobrinha[0].x > 25 * box && Direction == "right") Cobrinha[0].x = 0;
     if(Cobrinha[0].x < 0 && Direction == "left") Cobrinha[0].x = 26 * box;
     if(Cobrinha[0].y > 15 * box && Direction == "down") Cobrinha[0].y = 0;
     if(Cobrinha[0].y < 0 && Direction == "up") Cobrinha[0].y = 16 * box;
+
+    for(I = 1; I < Cobrinha.length; I++){
+        if(Cobrinha[0].x == Cobrinha[I].x && Cobrinha[0].y == Cobrinha[I].y){
+            clearInterval(Jogo);
+            alert("Fim de Jogo!\nRecarregue a página para jogar novamente! (f5)");
+        }
+    }
 
     CriarBG();
     CriarCobrinha();
